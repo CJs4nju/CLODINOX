@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora CLODINOX</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="logo-container">
+    <img src="logo.png">
+  </div>
+
+  <h1>Calculadora de Grades</h1>
+
+  <div>
+    <input id="medidaTotal" placeholder="Medida total" oninput="calcular()">
+    <input id="faceLaterais" placeholder="Laterais" oninput="calcular()">
+    <input id="faceCentrais" placeholder="Face central" oninput="calcular()">
+    <input id="qtdMetalons" placeholder="Qtd metalons" oninput="calcular()">
+  </div>
+
+  <h3 id="resEspacamento"></h3>
+</div>
+
+<script src="script.js"></script>
+<script>
+function calcular(){
+ let total = parseFloat(medidaTotal.value);
+ let lat = parseFloat(faceLaterais.value);
+ let cen = parseFloat(faceCentrais.value);
+ let qtd = parseInt(qtdMetalons.value);
+
+ if(!total || !lat || !cen || !qtd) return;
+
+ let res = calcularEspacamento(total, lat, cen, qtd);
+ resEspacamento.innerText = res.toFixed(2) + " mm";
+}
+</script>
+
+</body>
+</html>
